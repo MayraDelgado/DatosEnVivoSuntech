@@ -70,3 +70,9 @@ element.style {
     color: #fff;
     padding: 10px;
 }
+.centerPane {
+    position: absolute;
+    overflow-x: hidden;
+    overflow-y: auto;
+    z-index: 10;
+}
