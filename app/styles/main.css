@@ -55,6 +55,7 @@ USERCARD.TMPL.HTML HTMLJSCSSREGULARCARD.TMPL.HTMLUSERCARD.TMPL.HTML .colorsdemoB
 
 element.style {
     color: #31302f;
+    z-index:10;
 }
 
 .dtp>.dtp-content>.dtp-date-view>header.dtp-header {
