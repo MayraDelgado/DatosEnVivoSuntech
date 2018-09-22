@@ -38,12 +38,16 @@ var angularObj = {
 
             $scope.btnImprimir = function () {
                 if ($scope.resultConsultaVehiculos.length === 0) {
-                    swal(
-                        '',
-                        'No hay datos que descargar',
-                        "error",
-                    )
-                    console.log("No hay datos que descargar");
+                     const toast = swal.mixin({
+                        toast: true,
+                        position: 'center',
+                        showConfirmButton: false,
+                        timer: 5000
+                    });
+                    toast({
+                        type: 'error',
+                        title: 'No hay datos que descargar.'
+                    });
                 } else
                 if ($scope.resultConsultaVehiculos.length > 0) {
                     $("#fechaDevice").table2excel({
@@ -55,15 +59,20 @@ var angularObj = {
             $scope.vehiculosReport1 = function () {
 
                 if ($scope.dispositivoIngresado.length === 0) {
-                    swal({
+                     const toast = swal.mixin({
+                        toast: true,
+                        position: 'center',
+                        showConfirmButton: false,
+                        timer: 5000
+                    });
+                    toast({
                         type: 'error',
-                        text: 'Debes ingresar el deviceId para continuar !!.'
+                        title: 'Ingresa deviceId.'
                     });
                 } else
                 if ($scope.dispositivoIngresado.length > 0) {
                     swal({
                         imageUrl: 'https://rawgit.com/MayraDelgado/reportes/master/app/img/cargando5.gif',
-                        timer: 5000,
                         showConfirmButton: false,
                         background: 'rgba(100,100,100,0)'
                     });
@@ -84,12 +93,24 @@ var angularObj = {
                             'Content-Type': 'application/json'
                         }
                     }).then(function successCallback(response) {
+                        swal({
+                            imageUrl: 'https://rawgit.com/MayraDelgado/reportes/master/app/img/cargando5.gif',
+                            timer: 4000,
+                            showConfirmButton: false,
+                            background: 'rgba(100,100,100,0)'
+                        });
                         $scope.resultConsultaVehiculos = response.data;
                         console.log(response);
                         if ($scope.resultConsultaVehiculos.length === 0) {
-                            swal({
+                            const toast = swal.mixin({
+                                toast: true,
+                                position: 'center',
+                                showConfirmButton: false,
+                                timer: 5000
+                            });
+                            toast({
                                 type: 'error',
-                                text: 'No existen registros en el rango de fechas seleccionado o el DeviceId no existe!.'
+                                title: 'No existen registros en el rango de fechas seleccionado.'
                             });
                         }
                     }, function errorCallback(response) {
