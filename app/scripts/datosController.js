@@ -50,6 +50,16 @@ var angularObj = {
                     });
                 } else
                 if ($scope.resultConsultaVehiculos.length > 0) {
+                     const toast = swal.mixin({
+                        toast: true,
+                        position: 'center',
+                        showConfirmButton: false,
+                        timer: 5000
+                    });
+                    toast({
+                        type: 'success',
+                        title: 'Descarga finalizada.'
+                    });
                     $("#fechaDevice").table2excel({
                         filename: "DatosVivo_Suntech"
                     });
