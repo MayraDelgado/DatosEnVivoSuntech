@@ -96,8 +96,8 @@ var angularObj = {
                         device: $scope.dispositivoIngresado,
                         /*start: moment($scope.Data.start).format('YYYY-MM-DD') + " 05:00:00",
                         end: moment($scope.Data.end).add(1, 'd').format('YYYY-MM-DD') + " 05:00:00"*/ //#endregion
-                        start: moment($scope.Data.start).add('hours' , 6).format('YYYY-MM-DD HH:mm:ss'),
-                        end: moment($scope.Data.end).add('hours' , 6).format('YYYY-MM-DD HH:mm:ss')
+                        start: moment($scope.Data.start).subtract(6,'hours').format('YYYY-MM-DD HH:mm:ss'),
+                        end: moment($scope.Data.end).subtract(6,'hours').format('YYYY-MM-DD HH:mm:ss')
                     }), {
                         headers: {
                             'Content-Type': 'application/json'
